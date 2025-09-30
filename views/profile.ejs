@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        code { background-color: #f0f0f0; padding: 10px; display: block; white-space: pre-wrap; word-break: break-all; }
+        button { background-color: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Login bem-sucedido!</h1>
+    <p>O SSO retornou as seguintes informações sobre você:</p>
+    <pre><code><%= JSON.stringify(user, null, 2) %></code></pre>
+
+    <hr>
+    
+    <h2>Dados dos Tokens</h2>
+    <p><strong>Access Token (curta duração):</strong></p>
+    <pre><code><%= tokenData.access_token %></code></pre>
+    <p><strong>Refresh Token (longa duração):</strong></p>
+    <pre><code><%= tokenData.refresh_token %></code></pre>
+    
+    <form action="/refresh" method="post">
+        <button type="submit">Renovar Sessão (Usar Refresh Token)</button>
+    </form>
+    
+    <br>
+    <a href="/">Voltar</a>
+</body>
+</html>
